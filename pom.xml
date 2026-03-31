@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>5755343b-733a-4abe-a574-b45a038c6bac</groupId>
 	<artifactId>cicd-poc-app</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.6</version>
 	<packaging>mule-application</packaging>
 
 	<name>cicd-poc-app</name>
@@ -13,8 +15,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<app.runtime>4.9.10</app.runtime>
-		<mule.maven.plugin.version>4.5.3</mule.maven.plugin.version>
+		<app.runtime>4.9.0</app.runtime>
+		<mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
 	</properties>
 
 	<build>
@@ -30,37 +32,37 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-	<cloudhub2Deployment>
-		<uri>https://anypoint.mulesoft.com</uri>
-		<provider>MC</provider>
-		<environment>Sandbox</environment>
-		<target>Cloudhub-US-East-2</target>
-		<muleVersion>4.4.0</muleVersion>
-		<server>ca.anypoint.credentials</server>
-		<applicationName>cicd-poc-app</applicationName>
-		<replicas>1</replicas>
-		<vCores>0.1</vCores>
-		<skipDeploymentVerification>${skipDeploymentVerification}</skipDeploymentVerification>
-		<integrations>
-			<services>
-				<objectStoreV2>
-					<enabled>true</enabled>
-				</objectStoreV2>
-			</services>
-		</integrations>
-	</cloudhub2Deployment>
-</configuration>
+					<cloudhub2Deployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<provider>MC</provider>
+						<environment>Sandbox</environment>
+						<target>Cloudhub-US-East-2</target>
+						<muleVersion>4.9.0</muleVersion>
+						<server>ca.anypoint.credentials</server>
+						<applicationName>cicd-poc-app</applicationName>
+						<replicas>1</replicas>
+						<vCores>0.1</vCores>
+						<skipDeploymentVerification>${skipDeploymentVerification}</skipDeploymentVerification>
+						<integrations>
+							<services>
+								<objectStoreV2>
+									<enabled>true</enabled>
+								</objectStoreV2>
+							</services>
+						</integrations>
+					</cloudhub2Deployment>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
 	<distributionManagement>
-	<repository>
-		<id>ca.anypoint.credentials</id>
-		<name>Corporate Repository</name>
-		<url>https://maven.anypoint.mulesoft.com/api/v2/organizations/${project.groupId}/maven</url>
-		<layout>default</layout>
-	</repository>
-</distributionManagement>
+		<repository>
+			<id>ca.anypoint.credentials</id>
+			<name>Corporate Repository</name>
+			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${project.groupId}/maven</url>
+			<layout>default</layout>
+		</repository>
+	</distributionManagement>
 
 	<dependencies>
 		<dependency>
@@ -85,7 +87,7 @@
 
 	<repositories>
 		<repository>
-			<id>anypoint-exchange-v3</id>
+			<id>ca.anypoint.credentials</id>
 			<name>Anypoint Exchange</name>
 			<url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
 			<layout>default</layout>

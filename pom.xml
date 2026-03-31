@@ -6,7 +6,7 @@
 
 	<groupId>5755343b-733a-4abe-a574-b45a038c6bac</groupId>
 	<artifactId>cicd-poc-app</artifactId>
-	<version>1.0.9</version>
+	<version>1.0.12</version>
 	<packaging>mule-application</packaging>
 
 	<name>cicd-poc-app</name>
@@ -78,7 +78,7 @@
 
 	<repositories>
 		<repository>
-			<id>ca.anypoint.credentials</id>
+			<id>anypoint-exchange-v3</id>
 			<name>Anypoint Exchange</name>
 			<url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
 			<layout>default</layout>

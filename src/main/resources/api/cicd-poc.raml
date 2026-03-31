@@ -1,0 +1,24 @@
+#%RAML 1.0
+title: cicd-poc
+version: v1
+baseUri: http://localhost:8081/api
+mediaType: application/json
+
+/customers:
+  get:
+    description: Get list of customers
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              [
+                {
+                  "id": "C101",
+                  "name": "Vaibhav"
+                },
+                {
+                  "id": "C102",
+                  "name": "Rahul"
+                }
+              ]

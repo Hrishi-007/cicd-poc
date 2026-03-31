@@ -35,7 +35,7 @@ jobs:
       run: mvn help:effective-settings
     
     - name: Build with Maven
-      run: mvn -B package -s ${{ github.workspace }}/.maven/settings.xml
+      run: mvn -B package -s ~/.maven/settings.xml
     
     - name: Stamp artifact file name with commit hash
       run: |
@@ -109,7 +109,7 @@ jobs:
     - name: Deploy to Sandbox
       run: |
         artifactName=$(ls *.jar | head -1)
-        mvn clean deploy -DmuleDeploy \
+        mvn deploy -DmuleDeploy \
          -Dmule.artifact=$artifactName \
          -s .maven/settings.xml \
          -DskipTests  -DskipDeploymentVerification="true"
